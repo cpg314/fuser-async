@@ -1,0 +1,37 @@
+[package]
+name = "fuser-async"
+description = "Build FUSE filesystems where the system calls are directed to async functions. With an example S3 implementation."
+authors = ["cpg <44120267+cpg314@users.noreply.github.com>"]
+version = "0.1.1"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/cpg314/fuser-async"
+readme = "README.md"
+include = ["src/**/*", "README.md"]
+
+
+[profile.release]
+incremental = true
+lto = "thin"
+
+[dependencies]
+anyhow = { version = "1.0.42", features = ["backtrace"] }
+async-trait = "0.1.51"
+bimap = "0.6.3"
+bytes = "1.2.1"
+fuser = "0.11.1"
+libc = "0.2.134"
+lru = "0.8.1"
+num-traits = "0.2.14"
+rustc-hash = "1.1.0"
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0.38"
+tokio = { version = "1.8.1", features = ["full"] }
+tracing = "0.1"
+trait-set = "0.3.0"
+
+[workspace]
+members = ["s3", "local", "demo"]
+
+[package.metadata.docs.rs]
+all-features = true
