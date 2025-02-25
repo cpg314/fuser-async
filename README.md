@@ -1,4 +1,4 @@
-This crate allows building FUSE filesystems where the system calls are directed to `async` functions.
+This crate, based on the [fuser crate](https://crates.io/crates/fuser), allows building FUSE filesystems where the system calls are directed to `async` functions.
 
 This can be particularly useful when the syscalls benefit from (or require) async IO.
 When using a multi-threaded [`tokio`] runtime, this can also be useful for CPU-bound code
